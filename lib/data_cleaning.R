@@ -6,25 +6,29 @@ library(rpart)
 library(randomForest)
 library(caret)
 set.seed(7)
-setwd("G:/Columbia/study/3rd semester/5243/project3/Project3_poodleKFC_train/")
+setwd("C:/Users/ys2882/Downloads/Project3_poodleKFC_train/")
 dat_train=fread("sift_features.csv")
 #save(dat_train,file="dat_train.RData")
 #load('dat_train.RData')
 label_train=c(t(data.frame(rep(0,1000))),t(data.frame(rep(1,1000))))
-dat_train=data.frame(t(dat_train))    # column denotes feature, row denotes pictures
-dat_train=mutate(dat_train,label=as.factor(label_train)) # the last column is label,
+sub_feature=prcomp(dat_train)
+sub_feature2=data.frame(t(sub_feature$x))
+sub_feature2=mutate(sub_feature2,label=as.factor(label_train)) # the last column is label,
 
-source("http://bioconductor.org/biocLite.R") 
-biocLite("EBImage")
+#dat_train=data.frame(t(dat_train))    # column denotes feature, row denotes pictures
+#dat_train=mutate(dat_train,label=as.factor(label_train)) # the last column is label,
+
+# source("http://bioconductor.org/biocLite.R") 
+# biocLite("EBImage")
 
 ### provide test sample
-test1=dat_train %>% 
-      group_by(label)%>%
-      sample_n(.,size=1000,replace=FALSE)                                              # 0:chicken, 1: dog
-### decision tree part
-tree_fit <- rpart(label~ .,
-             method="class", data=test1,
-             control = rpart.control(minsplit=30, cp=.005))
+# test1=dat_train %>% 
+#   group_by(label)%>%
+#   sample_n(.,size=1000,replace=FALSE)  # 0:chicken, 1: dog
+# ### decision tree part
+# tree_fit <- rpart(label~ .,
+#                   method="class", data=test1,
+#                   control = rpart.control(minsplit=30, cp=.005))
 # printcp(tree_fit) # display the results
 # plotcp(tree_fit)
 # plot(tree_fit, uniform=TRUE, 
@@ -34,7 +38,7 @@ tree_fit <- rpart(label~ .,
 predictions <- predict(tree_fit, test1, type="class")
 table(test1$label, predictions)
 
-sub_feature=dat_train %>% sample_n(size=1000,replace=F)
+#sub_feature=dat_train %>% sample_n(size=1000,replace=F)
 ### Use caret to tune parameter
 seed=7
 control <- trainControl(method="repeatedcv", number=5, repeats=3, search="grid")
