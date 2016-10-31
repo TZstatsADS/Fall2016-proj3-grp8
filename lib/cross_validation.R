@@ -29,3 +29,7 @@ cv.function <- function(X.train, y.train, d, K){
   return(c(mean(cv.error),sd(cv.error)))
   
 }
+
+
+
+######################
