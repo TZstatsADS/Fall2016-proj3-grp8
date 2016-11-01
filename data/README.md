@@ -9,3 +9,5 @@ rgb_feature: color feature extracted by RGB, dim (2000*800)
 spacial_feature: color feature extracted by SCF (2000*12000)
  
 hsv_feature: color feature extracted by HSV (2000*360)
+
+Note: the color features contain a lot of 0, so should apply PCA before feeding into SVM.
