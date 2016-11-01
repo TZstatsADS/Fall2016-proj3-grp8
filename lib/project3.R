@@ -45,7 +45,7 @@ cv.function <- function(X.train, y.train, d, K){
     train.total <- cbind(train.data,train.label)
     n1 <- names(train.total)
     f <- as.formula(paste("train.label ~", paste(n1[!n1 %in% "train.label"], collapse = " + ")))
-    fit <- neuralnet(f,data=train.total,hidden=0,linear.output=F)
+    fit <- neuralnet(f,data=train.total,hidden=d,linear.output=F)
     pred <- compute(fit,test.data)
     pr.nn_ <- pred$net.result*(max(train.total$train.label)-min(train.total$train.label))+min(train.total$train.label)
     test.r <- (test.label)*(max(train.total$train.label)-min(train.total$train.label))+min(train.total$train.label)
