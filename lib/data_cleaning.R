@@ -5,16 +5,24 @@ library(dplyr)
 library(rpart)
 library(randomForest)
 library(caret)
+library(EBImage)
 set.seed(7)
-setwd("C:/Users/ys2882/Downloads/Project3_poodleKFC_train/")
+setwd("G:/Columbia/study/3rd semester/5243/project3/Project3_poodleKFC_train/")
 dat_train=fread("sift_features.csv")
+img_dir="G:/Columbia/study/3rd semester/5243/project3/Project3_poodleKFC_train/images/"
+img_name=list.files(path =img_dir, 
+           pattern = NULL, all.files = FALSE,
+           full.names = FALSE, recursive = FALSE,
+           ignore.case = FALSE, include.dirs = FALSE, no.. = FALSE)
+
 #save(dat_train,file="dat_train.RData")
 #load('dat_train.RData')
-label_train=c(t(data.frame(rep(0,1000))),t(data.frame(rep(1,1000))))
-sub_feature=prcomp(dat_train)
-sub_feature2=data.frame(t(sub_feature$x))
-sub_feature2=mutate(sub_feature2,label=as.factor(label_train)) # the last column is label,
-
+label_train=c(t(data.frame(rep(1,1000))),t(data.frame(rep(0,1000))))
+sub_feature=prcomp(t(dat_train))
+sub_feature2=data.frame((sub_feature$x))
+cutoff=min(which(var_pca>0.45))
+sub_feature3=mutate(sub_feature2[,1:cutoff],label=as.factor(label_train)) # the last column is label,
+randomForest(label~.,dat=sub_feature3,mtry=20,ntree=701)
 #dat_train=data.frame(t(dat_train))    # column denotes feature, row denotes pictures
 #dat_train=mutate(dat_train,label=as.factor(label_train)) # the last column is label,
 
@@ -56,5 +64,5 @@ source("rf_train.R")
 source("rf_test.R")
 source("rf_cv.R")
 rf.cv.function(dat_train,dat_train$label,ntree=150,mtry=80,K=5)
-tuneRF(dat_train[,1:5000], dat_train$label, mtry=35,ntreeTry=100, 
-       stepFactor=1.1, improve=0.001,trace=TRUE, plot=TRUE, doBest=FALSE)
+tuneRF(sub_feature3, sub_feature3$label, mtry=70,ntreeTry=500, 
+       stepFactor=2, improve=0.05,trace=TRUE, plot=TRUE, doBest=FALSE)
