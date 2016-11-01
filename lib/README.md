@@ -8,6 +8,6 @@ data_cleaning.R : make sure everyone is using the same naming system and cleanin
 
                   transpose the data to make columns denoting features and rows denoting pictures.
                   
-                  the last column is the label, 0 is chicken, 1 is dog.
+                  the last column is the label, 1 is chicken, 0 is dog.
 
 rgb_feature.R : extract the color features from the pics, using RGB, SVF and HSV methods.
