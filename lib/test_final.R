@@ -1,12 +1,13 @@
 #baseline_test
 
-baseline_test<- function(model.gbm, model.adv, X.trian){
+baseline_test<- function(model.gbm, X.trian){
   
-  gbm_pred<-predict(model.gbm, X.trian)
-  adv_pred<-predict(model.adv, X.train)
+  best_iter<-gbm.perf(model.gbm,method = "OOB")
+  
+  gbm_pred<-predict(model.gbm, X.trian, n.tree=best_iter,type='response')
+  gbm_pred<-as.numeric(gbm_pred > 0.5)
   
   
-  return(list(baseline=gbm_pred,advanced=adv_pre))
-  
+  return(baseline=gbm_pred)
 }
 
