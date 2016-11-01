@@ -62,4 +62,8 @@ for i in range(len(burred_dir_list)):
     num += len(des)
     print(num)
     
-np.savetxt("/Users/sun93/Desktop/feature.csv", feature_matrix, delimiter=",")
+feature_list = feature_matrix.tolist()
+#print(feature_list[0])
+with open("/Users/sun93/Desktop/feature.csv", "w") as f:
+    writer = csv.writer(f, delimiter =',')
+    writer.writerows(feature_list)
