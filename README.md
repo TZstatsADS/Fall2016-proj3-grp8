@@ -34,12 +34,13 @@ Xuechun Sun:
 
 
 Shujin Cao
-- Train SVM model based on SIFT
+- Train SVM, random forest, and model based on SIFT/SURF
+- Extract SIFT/SURF features
 - Test the baseline model and advance model
 
 Ying Zhu: 
 - Train SVM model based on SIFT
-- Determine the baseline model by tuning parameter
+- Determine the baseline model and advanced model by tuning parameter
 - Test the baseline model and advance model
 - Prepare for presentation
 
