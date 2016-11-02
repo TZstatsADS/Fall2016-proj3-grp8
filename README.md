@@ -18,6 +18,7 @@ Term: Fall 2016
 Yiwei Sun: 
 - Train Random Forest model based on SIFT
 - Extract the feature using RGB methods
+- Run PCA to reduce the dimension
 - Test the advance model
 
 Jiani Tian: 
