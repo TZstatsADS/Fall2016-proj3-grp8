@@ -6,7 +6,7 @@ import pdb
 
 
 
-image_names = np.array(glob.glob("Images/*.jpg"))
+image_names = np.array(glob.glob("Images/*.jpg"))[:5]
 print(image_names[:5])
 
 #image_names = ['images/image1.jpg', 'images/image2.jpg']
