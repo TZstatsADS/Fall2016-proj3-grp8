@@ -20,7 +20,6 @@ index <- rep(1:length(orb_features_cluster$cluster),1)
 orb_cluster_500 <- matrix(NA, nrow = 500, ncol = num_of_image)
 
 #get new probability matrix 
-
 for (i in 1:num_of_image){
   if (length(index[orb_features$Image_index == i]) == 0)
     orb_cluster_500[,i] = 0
@@ -45,6 +44,7 @@ apply(orb_cluster_500, 2, function(i) sum(i))
 apply(orb_cluster_500, 2, function(i) sum(i))[1000:2000]
 orb_features_500 <- t(orb_cluster_500)
 
+# new feature based on orb
 save(orb_features_500, file = "/Users/sun93/Desktop/orb_features_500.RData")
 
 #########################
