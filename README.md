@@ -4,16 +4,28 @@
 
 Term: Fall 2016
 
-+ Team #
++ Team 8
 + Team members
-	+ team member 1
-	+ team member 2
-	+ team member 3
-	+ team member 4
-	+ team member 5
+	+ Yiwei Sun 
+	+ Xuechun Sun
+	+ Jiani Tian
+	+ Shujin Cao
+	+ Ying Zhu
 + Project summary: In this project, we created a classification engine for images of poodles versus images of fried chickens. 
 	
 **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
+
+Yiwei Sun: Train random forest model based on SIFT; Extract the rgb feature; Test the advance model
+
+Jiani Tian: Train Neural Network model based on SIFT; Try the face detection in dog; Test the advance model
+
+Xuechun Sun: Train GBM model based on SIFT; Test the baseline model and advance model; Extract the ORB feature and PCA to reduce the dimension;
+
+Shujin Cao: Train SVM model based on SIFT; Test the baseline model and advance model;
+
+Ying Zhu: Train SVM model based on SIFT; Determine the baseline model by tuning parameter; Test the baseline model and advance model;
+
+
 
 Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by [RICH FITZJOHN](http://nicercode.github.io/about/#Team) (@richfitz). This folder is orgarnized as follows.
 
