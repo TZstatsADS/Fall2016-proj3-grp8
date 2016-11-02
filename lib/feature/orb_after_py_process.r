@@ -100,27 +100,4 @@ varExplained(pca.orb)
 n = 1000
 #sift.score.n <- as.matrix(sift_train[,-5001]) %*% sift.pca$rotation[,c(1:n)]
 
-#########################################
-#run gbm model 
-sift_orb.score.1200 <- as.matrix(sift_features_add1) %*% sift_orb.pca$rotation[,c(1:1200)]
-GBM.cv.function2(sift_orb.score.1200,as.vector(sift_features_add1_label$label),3,5) #0.2865
-
-sift_orb.score.1400 <- as.matrix(sift_features_add1) %*% sift_orb.pca$rotation[,c(1:1400)]
-GBM.cv.function2(sift_orb.score.1400,as.vector(sift_features_add1_label$label),3,5) #0.2725
-
-sift_orb.score.1500 <- as.matrix(sift_features_add1) %*% sift_orb.pca$rotation[,c(1:1500)]
-GBM.cv.function2(sift_orb.score.1500,as.vector(sift_features_add1_label$label),3,5) #0.282
-
-sift_orb.score.1700 <- as.matrix(sift_features_add1) %*% sift_orb.pca$rotation[,c(1:1700)]
-GBM.cv.function2(sift_orb.score.1700,as.vector(sift_features_add1_label$label),3,5) #0.282
-
-sift_orb.score.1800 <- as.matrix(sift_features_add1) %*% sift_orb.pca$rotation[,c(1:1800)]
-GBM.cv.function2(sift_orb.score.1800,as.vector(sift_features_add1_label$label),3,5) #0.276
-
-sift_orb.score.2000 <- as.matrix(sift_features_add1) %*% sift_orb.pca$rotation[,c(1:2000)]
-GBM.cv.function2(sift_orb.score.2000,as.vector(sift_features_add1_label$label),3,5) #0.2885
-
-#total variables
-GBM.cv.function2(sift_features_add1,as.vector(sift_features_add1_label$label),3,5) #0.2655
-
 
