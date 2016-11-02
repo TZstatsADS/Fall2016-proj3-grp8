@@ -31,7 +31,7 @@ Xuechun Sun:
 - Test the baseline model and advance model
 - Apply Median Filter and build Codebook using ORB methods and generating K-Means clustering
 - Run PCA to reduce the dimension
-- Test the advance model
+
 
 Shujin Cao
 - Train SVM model based on SIFT
