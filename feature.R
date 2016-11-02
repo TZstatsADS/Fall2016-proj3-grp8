@@ -1,7 +1,6 @@
 ### Input: dir of the csv file
 ### Output: feature 2000*196
 #install.packages("randomForest")
-library(randomForest)
 setwd("/Users/jianitian/Desktop/final_project3_1")
 setwd(dir)
 dat_train=read.csv("sift_features_test.csv")
