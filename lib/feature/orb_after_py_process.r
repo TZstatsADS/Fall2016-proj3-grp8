@@ -3,8 +3,7 @@ library(dplyr)
 library(gbm)
 #feature.csv derives from .py file
 orb_features <- fread('/Users/sun93/Desktop/feature.csv',header = FALSE)
-dim(orb_features)
-#str(orb_features)
+
 orb_features <- as.data.frame(orb_features)
 colnames(orb_features)[33] <- c("Image_index")
 dim(orb_features)
