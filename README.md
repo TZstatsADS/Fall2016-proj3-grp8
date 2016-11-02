@@ -41,6 +41,7 @@ Ying Zhu:
 - Train SVM model based on SIFT
 - Determine the baseline model by tuning parameter
 - Test the baseline model and advance model
+- Prepare for presentation
 
 
 
