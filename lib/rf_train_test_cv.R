@@ -1,14 +1,16 @@
+### test.R
 library(data.table)
 library(dplyr)
 library(randomForest)
 library(EBImage)
 set.seed(7)
-setwd("G:/Columbia/study/3rd semester/5243/project3/Project3_poodleKFC_train/")
+setwd("C:/Users/ys2882/Downloads")
 dat_train=fread("sift_features.csv")
 label_train=c(t(data.frame(rep(1,1000))),t(data.frame(rep(0,1000))))
 dat_train=tbl_df(t(dat_train))
 
 ## random forest train
+# ptm <- proc.time();rf.cv.function(sub_feature,label_train,K=5);proc.time();
 rf_train=function(dat_train, label_train,ntree,mtry)
 {
   ### Train a Decision using processed features from training images
@@ -17,7 +19,7 @@ rf_train=function(dat_train, label_train,ntree,mtry)
   ###  -  processed features from images 
   ###  -  class labels for training images
   ### Output: training model specification
-
+  
   library(data.table)
   library(dplyr)
   library(randomForest)
@@ -68,6 +70,4 @@ rf.cv.function <- function(X.train, y.train,ntree=500,mtry=sqrt(ncol(X.train)),K
     
   }			
   return(c(mean(cv.error),sd(cv.error)))
-  
 }
-#rf.cv.function(sub_feature,label_train,K=5)
