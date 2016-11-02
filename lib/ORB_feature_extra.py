@@ -8,6 +8,7 @@ import numpy as np
 import cv2
 from os import listdir
 
+# dir of training images
 path1 = '/Users/sun93/Documents/ADS/pro3/Project3_poodleKFC_train/images/'
 # dir of burred images
 path2 = '/Users/sun93/Documents/ADS/pro3/Project3_poodleKFC_train/burred_images/'
