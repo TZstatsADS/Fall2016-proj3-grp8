@@ -9,9 +9,6 @@ library(randomForest)
 library(gbm)
 library(data.table)
 setwd("/Users/jianitian/Desktop/project3_final")
-setwd(dir)
-dat_test=read.csv("sift_features_test.csv")
-dat_test=t(dat_train)
 
 # load test sift feature and modified feature 
 X.test_sift=t(read.csv("sift_features.csv"))##read the sift new feature provided, rows are observations, cols are features
@@ -35,4 +32,5 @@ baseline_test<- function(model.gbm,model.adv,X.test_sift,X.test_modified){
   return(list(baseline=gbm_pred,advanced=adv_pred))
 }
 # run the 2 models
-pre<-baseline_test(base_train,fit_196,dat_test,feature_196)
+#base_train is read by gbm model in the output fitted_gbm_model
+pre<-baseline_test(base_train,fit_196,X.test_sift,feature_196)
