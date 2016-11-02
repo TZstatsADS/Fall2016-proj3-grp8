@@ -1,4 +1,5 @@
-
+### Input: dir of the csv file
+### Output: feature 2000*1428
 feature=function(dir){
   library(data.table)
   library(dplyr)
@@ -13,7 +14,7 @@ feature=function(dir){
   pca1=prcomp(t(dat_train))
   pca1_x=data.frame((pca1$x))
   var_pca=cumsum((pca1$sdev)^2/sum((pca1$sdev)^2))
-  cutoff=min(which(var_pca>0.45))
+  cutoff=min(which(var_pca>0.8))
   sub_feature=mutate(pca1_x[,1:cutoff])
 
 ### loading RGB feature: rgb_feature_all
@@ -26,6 +27,6 @@ feature=function(dir){
 
 ### combine the features into 1 final feature
   feature=data.frame(sub_feature,rgb_feature_all,orb_features_500,label_train)
-  #save(file="feature.RData",feature)
+  save(file="training_feature.RData",feature)
   return(feature)
 }
