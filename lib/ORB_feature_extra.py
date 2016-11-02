@@ -27,10 +27,10 @@ for i in range(len(image_lists)-1):
 for i in range(len(image_dir_list)):
     print(i)
     img = cv2.imread(image_dir_list[i])
-    blur = cv2.bilateralFilter(img,15,75,75)
-    cv2.imwrite(burred_dir_list[i],blur)
-     
-len(blur)
+    median = cv2.medianBlur(img,7)
+    #blur = cv2.bilateralFilter(img,15,75,75)
+    cv2.imwrite(burred_dir_list[i],median)
+    
 
 
 # ORB
