@@ -1,21 +1,23 @@
 #baseline_test
-#Usage: baseline_test(model.gbm=base_train,model.adv=rf_fit,X.test_ori=X.test_ori,X.test_modified=feature)
+#Usage: [base_pred,adv_pred]=baseline_test(model.gbm=base_train,model.adv=rf_fit,X.test_sift=X.test_sift,X.test_modified=feature)
 library(randomForest)
 library(gbm)
 library(data.table)
-setwd("C:/Users/ys2882/Downloads")
+setwd(dir)
+
+X.test_sift=t(fread("sift_features.csv"))##read the sift new feature provided, rows are observations, cols are features
 load("fitted_rf_model.RData")
 load("fitted_gbm_model.RData")
 load("training_feature.RData")
-X.test_ori=t(fread("sift_features.csv"))
-baseline_test<- function(model.gbm,model.adv,X.test_ori,X.test_modified){
 
+baseline_test<- function(model.gbm,model.adv,X.test_sift,X.test_modified){
+  
   library(randomForest)
   library(gbm)
   
   best_iter<-gbm.perf(model.gbm,method = "OOB")
   
-  gbm_pred<-predict(model.gbm, X.test_ori, n.tree=best_iter,type='response')
+  gbm_pred<-predict(model.gbm, X.test_sift, n.tree=best_iter,type='response')
   gbm_pred<-as.numeric(gbm_pred > 0.5)
   ### Fit the classfication model with testing data
   
@@ -28,4 +30,3 @@ baseline_test<- function(model.gbm,model.adv,X.test_ori,X.test_modified){
   adv_pred <- predict(model.adv, newdata=X.test_modified)
   return(list(baseline=gbm_pred,advanced=adv_pred))
 }
-
