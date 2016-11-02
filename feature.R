@@ -1,6 +1,6 @@
 ### Input: dir of the csv file
 ### Output: feature 2000*1428
-feature=function(dir){
+choose_feature=function(dir){
   library(data.table)
   library(dplyr)
   library(rpart)
