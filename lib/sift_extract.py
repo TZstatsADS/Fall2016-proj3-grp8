@@ -12,8 +12,8 @@ print(image_names[:5])
 #image_names = ['images/image1.jpg', 'images/image2.jpg']
 
 def SIFT_feature(img_list):
-    sift = cv2.xfeatures2d.SIFT_create()
-    des_list = []
+    sift = cv2.xfeatures2d.SIFT_create(40)
+    des_mt = np.zeros((1,129))
     for i in range(len(img_list)):
         image = cv2.imread(img_list[i])
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -22,15 +22,13 @@ def SIFT_feature(img_list):
         label = np.empty(desc.shape[0])
         label.fill(i)
         desc = np.column_stack((desc, label))
-        des_list.append(desc)
-    return des_list
+        des_mt = np.concatenate((des_mt,desc))
+    return des_mt
 ft_img = SIFT_feature(image_names)
+ft_img = np.delete(ft_img,(0), axis = 0)
 
-print(ft_img[:5])
-len(ft_img)
+# with file("raw_sift_features.txt", "w") as outfile:
+#     for data_slice in ft_img:
+#         np.savetxt(outfile,data_slice,fmt='%-7.2f')
 
-with file("raw_sift_features.txt", "w") as outfile:
-    for data_slice in ft_img:
-        np.savetxt(outfile,data_slice,fmt='%-7.2f')
-
-# np.savetxt("raw_sift_features.csv",ft_img,delimiter=",")
+np.savetxt("r_sift_ft.csv",ft_img,delimiter=",")
