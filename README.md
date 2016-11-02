@@ -15,7 +15,7 @@ Term: Fall 2016
 	
 **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
-Yiwei Sun: Train random forest model based on SIFT; Extract the rgb feature; Test the advance model
+Yiwei Sun: Train random forest model based on SIFT; Extract the rgb feature; Test the advance model; Data cleaning and use PCA to dimention reduction;
 
 Jiani Tian: Train Neural Network model based on SIFT; Try the face detection in dog; Test the advance model
 
@@ -23,7 +23,7 @@ Xuechun Sun: Train GBM model based on SIFT; Test the baseline model and advance 
 
 Shujin Cao: Train SVM model based on SIFT; Test the baseline model and advance model;
 
-Ying Zhu: Train SVM model based on SIFT; Determine the baseline model by tuning parameter; Test the baseline model and advance model;
+Ying Zhu: Presentaion; Train SVM model based on SIFT; Determine the baseline model by tuning parameter; Test the baseline model and advance model;
 
 
 
