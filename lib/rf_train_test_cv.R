@@ -70,5 +70,4 @@ rf.cv.function <- function(X.train, y.train,ntree=500,mtry=sqrt(ncol(X.train)),K
   return(c(mean(cv.error),sd(cv.error)))
   
 }
-
 #rf.cv.function(sub_feature,label_train,K=5)
