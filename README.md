@@ -23,8 +23,9 @@ Yiwei Sun:
 
 Jiani Tian: 
 - Train Neural Network model based on SIFT
-- Try the face detection and cropping in feature detection
+- Try the face detection, cropping and Harris Corner in feature detection
 - Test the advance model
+
 
 Xuechun Sun: 
 - Train GBM model based on SIFT
